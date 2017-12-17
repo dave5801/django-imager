@@ -16,8 +16,18 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from imager_profile.views import home_view
+#from imager_profile import views
+
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', home_view, name='homepage')
 ]
+
+
+'''
+urlpatterns = [
+    url(r'^admin/', admin.site.urls),
+    url(r'^$', views.home_view, name='homepage')
+]
+'''
