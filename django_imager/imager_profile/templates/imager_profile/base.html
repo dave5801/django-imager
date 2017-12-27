@@ -6,9 +6,14 @@
 <link rel="stylesheet" href="{% static "imager_profile/styles.css" %}">
 {% block bootstrap3_content %}
     <div class="container">
-        <h1>Welcome to the imgine, the world's leading photographer site.</h1>
+        <h1>Django-Imager Project</h1>
         <ul class="nav nav-pills">
-            <li role="presentation"><a href="{% url 'homepage' %}">{% bootstrap_icon "home" %} Home</a></li>
+            <li role="presentation"><a href="{% url 'homepage' %}">{% bootstrap_icon "camera" %} Home</a></li>
+
+            <li role="presentation"><a href="">Login</a></li>
+            <li role="presentation"><a href="">Register</a></li>
+
+            <!--
             {% if request.user.is_active == False %}
             <li role="presentation"><a href="{% url 'login' %}">Login</a></li>
             <li role="presentation"><a href="{% url 'register' %}">Register</a></li>
@@ -31,7 +36,7 @@
                     <li><a href="{% url 'logout' %}"> Logout</a></li>
                 </ul>
               </div>
-            {% endif %}
+            {% endif %}-->
         </ul>
 
         {% block content %}{% endblock %}

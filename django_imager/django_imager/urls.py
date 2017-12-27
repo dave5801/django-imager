@@ -17,11 +17,17 @@ from django.conf.urls import url
 from django.contrib import admin
 from imager_profile.views import home_view
 #from imager_profile import views
+#from imager_images.views import LogoutView
+
+from django.contrib.auth import views as auth_views
+
 
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', home_view, name='homepage')
+    url(r'^$', home_view, name='homepage'),
+    url(r'^login/$', auth_views.login, {'template_name': 'imager_profile/login.html'}, name='login'),
+   # url(r'^logout/', LogoutView.as_view(), name='logout')
 ]
 
 
