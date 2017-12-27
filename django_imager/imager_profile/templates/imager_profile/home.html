@@ -8,7 +8,9 @@
 {% block content %}
     <h1>Home Page</h1>
 {% load static %}
-<img src="{% static "imager_profile/pretty.jpg" %}" alt="My image"/>
+<div class="container">
+<img src="{% static "imager_profile/pretty.jpg" %}" class="img-rounded" alt="what no rounded corners?" width="304" height="236"/>
+<div>
 
 {% autoescape off %}{% bootstrap_messages %}{% endautoescape %}
 
