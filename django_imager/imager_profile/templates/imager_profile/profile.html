@@ -1,0 +1,39 @@
+{% extends 'imager_profile/base.html' %}
+
+{% load bootstrap3 %}
+
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+{% block content %}
+
+    <div class="profile-view">
+        <h1>Welcome, {{ user.username }}!</h1>
+
+{% if user.is_authenticated %}
+
+        <h3>PRIVATE ALBUM COUNT: {{ private_albums.count }}</h3>
+        <h3>PRIVATE PHOTO COUNT: {{ private_photos.count }}</h3>
+        <h3>PUBLIC ALBUM COUNT: {{ user.photo_set.count }}</h3>
+        <h3>PUBLIC PHOTO COUNT: {{ user.album_set.count }}</h3>
+        <a href="{% url 'edit-profile' %}">Edit Profile</a>
+
+
+{% endif %}
+
+        <p>WEBSITE: {{ user.imagerprofile.website }}</p>
+        <p>LOCATION: {{ user.imagerprofile.location }}</p>
+        <p>COMMISSION: {{ user.imagerprofile.commission }}</p>
+        <p>CAMERA: {{ user.imagerprofile.camera }}</p>
+        <p>SERVICES: {{ user.imagerprofile.services }}</p>
+        <p>BIO: {{ user.imagerprofile.bio }}</p>
+        <p>PHONE: {{ user.imagerprofile.phone }}</p>
+        <p>PHOTO_STYLES: {{ user.imagerprofile.photo_styles }}</p>
+
+        <p>To edit your information, use the form below.</p>
+    </div>
+
+
+    {% autoescape off %}{% bootstrap_messages %}{% endautoescape %}
+
+{% endblock %}
