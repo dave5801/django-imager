@@ -74,3 +74,14 @@ def activate(request, uidb64, token):
 def activation_sent_view(request):
     """View that displays when activation has been sent."""
     return render(request, 'imager_profile/activation_sent.html')
+
+
+def profile_view(request):
+    """View for user profile."""
+
+    if request.user.is_authenticated():
+        private_album_count = request.user.album_set.filter(published='PRIVATE')
+        private_photo_count = request.user.photo_set.filter(published='PRIVATE')
+        context = {'private_photos': private_photo_count,
+                   'private_albums': private_album_count}
+        return render(request, 'imager_profile/profile.html', context=context)

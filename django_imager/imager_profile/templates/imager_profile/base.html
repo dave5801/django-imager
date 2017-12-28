@@ -18,7 +18,7 @@
             <li role="presentation"><a href="{% url 'register' %}">Register</a></li>
             {% endif %}-->
             
-            <!--
+            <!---->
             {% if request.user.is_active %}
               <div id="nav-username" class="dropdown">
                 <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
@@ -37,7 +37,7 @@
                     <li><a href="{% url 'logout' %}"> Logout</a></li>
                 </ul>
               </div>
-            {% endif %}-->
+            {% endif %}
         </ul>
 
         {% block content %}{% endblock %}
