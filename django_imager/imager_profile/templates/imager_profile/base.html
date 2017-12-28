@@ -6,10 +6,9 @@
 <link rel="stylesheet" href="{% static "imager_profile/styles.css" %}">
 {% block bootstrap3_content %}
     <div class="container">
-        <h1>Django-Imager Project</h1>
+        <h1>Django-Imager</h1>
         <ul class="nav nav-pills">
-            <li role="presentation"><a href="{% url 'homepage' %}">{% bootstrap_icon "camera" %} Home</a></li>
-
+            <li role="presentation"><a href="{% url 'homepage' %}">{% bootstrap_icon "home" %} Home</a></li>
             <li role="presentation"><a href="{% url 'login' %}">Login</a></li>
             <li role="presentation"><a href="{% url 'register' %}">Register</a></li>
 
@@ -17,7 +16,9 @@
             {% if request.user.is_active == False %}
             <li role="presentation"><a href="{% url 'login' %}">Login</a></li>
             <li role="presentation"><a href="{% url 'register' %}">Register</a></li>
-            {% endif %}
+            {% endif %}-->
+            
+            <!--
             {% if request.user.is_active %}
               <div id="nav-username" class="dropdown">
                 <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
@@ -47,3 +48,4 @@
 
 <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
 {% bootstrap_javascript %}
+

@@ -43,4 +43,6 @@ def register_view(request, page='Register'):
             return render(request, 'imager_profile/activation_sent.html')
     else:
         form = EmailRegistrationForm()
+        #this line begins the error #returning bad response
+       # import pdb; pdb.set_trace()
     return render(request, 'imager_profile/register.html', {'form': form, 'page': page})
