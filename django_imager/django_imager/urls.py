@@ -36,6 +36,7 @@ urlpatterns = [
     url(r'^images/albums/', PublicAlbumsView.as_view(), name='public-albums'),
     url(r'^images/library/$', LibraryView.as_view(), name='library'),
     url(r'^images/album/(?P<pk>\w)/edit', UpdateAlbum.as_view(), name='edit-album'),
+    url(r'^profile/edit$', UpdateProfile.as_view(), name='edit-profile'),
     url(r'^logout/', LogoutView.as_view(), name='logout')
 ]
 
