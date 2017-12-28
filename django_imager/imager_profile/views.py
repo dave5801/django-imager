@@ -44,3 +44,33 @@ def register_view(request, page='Register'):
     else:
         form = EmailRegistrationForm()
     return render(request, 'registration/register.html', {'form': form, 'page': page})
+
+
+def activate(request, uidb64, token):
+    """View that checks user activation token."""
+    from django.contrib.auth import login
+    from django.contrib.auth.models import User
+    from django.shortcuts import redirect
+    from django.utils.encoding import force_text
+    from django.utils.http import urlsafe_base64_decode
+    from imager_profile.tokens import account_activation_token
+
+    try:
+        uid = force_text(urlsafe_base64_decode(uidb64))
+        user = User.objects.get(pk=uid)
+    except (TypeError, ValueError, OverflowError, User.DoesNotExist):
+        user = None
+
+    if user is not None and account_activation_token.check_token(user, token):
+        user.is_active = True
+        user.profile.email_confirmed = True
+        user.save()
+        login(request, user)
+        return redirect('login')
+    else:
+        return render(request, 'registration/activation_invalid.html')
+
+
+def activation_sent_view(request):
+    """View that displays when activation has been sent."""
+    return render(request, 'imager_profile/activation_sent.html')

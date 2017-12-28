@@ -27,7 +27,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', home_view, name='homepage'),
     url(r'^login/$', auth_views.login, {'template_name': 'imager_profile/login.html'}, name='login'),
-
+    url(r'^activate/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$', views.activate, name='activate'),
     url(r'^register/$', views.register_view, name='register'),
     url(r'^accounts/', include('registration.backends.hmac.urls'))
    # url(r'^logout/', LogoutView.as_view(), name='logout')
